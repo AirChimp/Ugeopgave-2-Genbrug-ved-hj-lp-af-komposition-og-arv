@@ -1,0 +1,48 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Animal {
+    - name : String
+    - energy : int
+    + Animal(name : String, energy : int)
+    + getName() : String
+    + setName(name : String) : void
+    + getEnergy() : int
+    + setEnergy(energy : int) : void
+    + isActive() : boolean
+    + attack() : int
+    + toString() : String
+}
+
+class Lion {
+    + Lion(name : String, energy : int)
+    + attack() : int
+}
+
+class Wolf {
+    - random : Random
+    + Wolf(name : String, energy : int)
+    + attack() : int
+}
+
+class Rabbit {
+    + Rabbit(name : String, energy : int)
+    + attack() : int
+}
+
+class Contest {
+    - animal1 : Animal
+    - animal2 : Animal
+    - round : int
+    + Contest(animal1 : Animal, animal2 : Animal)
+    + playRound() : void
+    + getWinner() : Animal
+}
+
+Animal <|-- Lion
+Animal <|-- Wolf
+Animal <|-- Rabbit
+
+Contest *-- Animal
+
+@enduml

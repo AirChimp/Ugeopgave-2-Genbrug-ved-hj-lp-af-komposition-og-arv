@@ -1,0 +1,49 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Building {
+    - name : String
+    - rooms : ArrayList<Room>
+    + Building(name : String)
+    + addRoom(room : Room) : void
+    + getTotalLampCount() : int
+    + getTotalWatt() : int
+    + printBuilding() : void
+}
+
+class Room {
+    - name : String
+    - lamps : ArrayList<Lamp>
+    - windows : ArrayList<Window>
+    + Room(name : String)
+    + addLamp(lamp : Lamp) : void
+    + addWindow(window : Window) : void
+    + getLampCount() : int
+    + getTotalWatt() : int
+    + getTotalWindowArea() : int
+    + printRoom() : void
+}
+
+class Lamp {
+    - watt : int
+    - isOn : boolean
+    + Lamp(watt : int)
+    + turnOn() : void
+    + turnOff() : void
+    + getWatt() : int
+    + toString() : String
+}
+
+class Window {
+    - widthCm : int
+    - heightCm : int
+    + Window(widthCm : int, heightCm : int)
+    + getAreaCm2() : int
+    + toString() : String
+}
+
+Building *-- Room
+Room *-- Lamp
+Room *-- Window
+
+@enduml
